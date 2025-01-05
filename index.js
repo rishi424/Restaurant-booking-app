@@ -19,7 +19,7 @@ morgan.token('error-message', (req, res) => res.locals.errorMessage || ''); // L
 
 app.use(morgan(':method :url :status :response-time ms - :req-body - :res-body - :error-message'));
 // Routes
-app.use('/api', bookingRouter);
+app.use('/', bookingRouter);
 
 // Database Connection
 db();
