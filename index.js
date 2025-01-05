@@ -12,7 +12,7 @@ const allowedOrigins = ['https://resturent-frontend.vercel.app']; // Add your fr
 app.use(
   cors({
     origin: allowedOrigins,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    methods: ['GET', 'POST', 'PUT', 'DELETE','PATCH'], // Allowed HTTP methods
     credentials: true, // Allow cookies if needed
   })
 );
