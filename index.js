@@ -16,6 +16,7 @@ morgan.token('error-message', (req, res) => res.locals.errorMessage || ''); // L
 app.use(morgan(':method :url :status :response-time ms - :req-body - :res-body - :error-message'));
 // Routes
 app.use('/', bookingRouter);
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 app.use((req, res) => {
     res.status(404).send('404 Not Found');
 });
