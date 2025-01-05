@@ -8,7 +8,14 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors()); // Enable CORS for all routes
+const allowedOrigins = ['https://resturent-frontend.vercel.app']; // Add your frontend domain here
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true, // Allow cookies if needed
+  })
+);
 morgan.token('req-body', (req) => JSON.stringify(req.body)); // Log request payload
 morgan.token('res-body', (req, res) => JSON.stringify(res.body)); // Log response body
 morgan.token('error-message', (req, res) => res.locals.errorMessage || ''); // Log error message
